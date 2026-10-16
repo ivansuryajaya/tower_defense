@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tower Defence</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="hud">
+      <div class="stat"><span class="ico">❤️</span><span id="lives">20</span></div>
+      <div class="stat gold"><span class="ico">💰</span><span id="gold">250</span></div>
+      <div class="stat"><span class="ico">🌊</span><span id="wave">0 / 20</span></div>
+      <div class="stat"><span class="ico">🏆</span><span id="score">0</span></div>
+      <div class="spacer"></div>
+      <button id="speedBtn" class="btn small" type="button">Speed 1x</button>
+      <button id="pauseBtn" class="btn small" type="button">Pause</button>
+    </header>
+
+    <main class="main">
+      <div class="board-wrap">
+        <canvas id="game" width="720" height="480"></canvas>
+
+        <div id="toast" class="toast"></div>
+
+        <div id="overlay" class="overlay hidden">
+          <div class="overlay-card">
+            <h1 id="overlayTitle">Game Over</h1>
+            <p id="overlayText">The horde broke through.</p>
+            <div class="overlay-stats" id="overlayStats"></div>
+            <button id="restartBtn" class="btn primary" type="button">Play Again</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>Build towers</h2>
+          <div id="towerList" class="tower-list"></div>
+        </section>
+
+        <section id="infoPanel" class="panel info-panel hidden">
+          <div class="ip-head">
+            <span class="ip-swatch" id="ipSwatch"></span>
+            <div>
+              <div class="ip-name" id="ipName">Gunner</div>
+              <div class="ip-level" id="ipLevel">Level 1 / 3</div>
+            </div>
+          </div>
+          <div class="ip-stats" id="ipStats"></div>
+          <div class="ip-actions">
+            <button id="upgradeBtn" class="btn primary" type="button">Upgrade</button>
+            <button id="sellBtn" class="btn danger" type="button">Sell</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="row">
+            <span class="label">Next wave</span>
+            <span class="value" id="nextWave">—</span>
+          </div>
+          <button id="startBtn" class="btn primary wide" type="button">▶ Start Wave 1</button>
+        </section>
+
+        <p class="hint">
+          Pick a tower, then click a grass tile to build (towers can't go on the road).
+          Click a placed tower to upgrade or sell it.<br />
+          <b>Keys:</b> 1–4 build · Esc / right-click cancel · Space start wave
+        </p>
+      </aside>
+    </main>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
